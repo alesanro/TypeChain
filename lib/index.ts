@@ -3,6 +3,7 @@ import { TypechainLegacy } from "./targets/legacy";
 import { Truffle } from "./targets/truffle";
 import { Web3 } from "./targets/web3";
 import { Ethers } from "./targets/ethers";
+import { resolve } from "path";
 
 export type TTypechainTarget = "truffle" | "web3-1.0.0" | "legacy" | "ethers";
 
@@ -37,7 +38,11 @@ export class Typechain extends TsGeneratorPlugin {
       case undefined:
         throw new Error(`Please provide --target parameter!`);
       default:
-        throw new Error(`Unsupported target ${this.ctx.rawConfig.target}!`);
+        try {
+          return require(resolve(ctx.cwd, ctx.rawConfig.target))(ctx);
+        } catch (error) {
+          throw new Error(`Unsupported target ${this.ctx.rawConfig.target}!`);
+        }
     }
   }
 

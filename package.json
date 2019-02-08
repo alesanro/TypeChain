@@ -1,5 +1,5 @@
 {
-  "name": "typechain",
+  "name": "@laborx/typechain",
   "description": "🔌 Typescript bindings for Ethereum smartcontracts",
   "keywords": [
     "ethereum",
@@ -8,9 +8,9 @@
     "smartcontract",
     "blockchain"
   ],
-  "version": "0.3.10",
+  "version": "0.3.11",
   "license": "MIT",
-  "repository": "https://github.com/ethereum-ts/Typechain",
+  "repository": "https://gitlab.chronobank.io/SmartContracts/TypeChain",
   "devDependencies": {
     "@types/bignumber.js": "^5.0.0",
     "@types/bluebird": "^3.5.18",
